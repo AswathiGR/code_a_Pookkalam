@@ -1,0 +1,58 @@
+from joy import *
+p1 = circle(x=0, y=-100, r=50,fill=)
+p2 = circle(x=0, y=-50, r=100)
+p3 = circle(x=0, y=0, r=150)
+
+
+#Central portion
+z = line(x1=0, y1=0, x2=20, y2=20, stroke="#000066", stroke_width="5")| repeat(2,rotate(-30))| rotate(-30)| translate(x=-40, y=-100)
+m = line(x1=0, y1=0, x2=15, y2=25,stroke="#000066", stroke_width="5")| translate(x=-5, y=-10)| translate(x=0, y=-100)
+y = line(x1=0, y1=0, x2=20, y2=20, stroke="#000066", stroke_width="5")| repeat(2,rotate(-30))| rotate(150)| translate(x=40, y=-100)
+
+
+
+#hexagon part
+
+#x1, y1 = 0, 0
+#x2, y2 = 85, 0
+#x3, y3 = 0, 85
+#x4, y4 = 85,85
+z1 = point(x=0, y=0)
+z2 = point(x=85, y=0)
+z3 = point(x=0, y=85)
+z4 = point(x=85, y=85)
+poly= polygon([z1,z2,z3,z4],fill="#CA1F7B ", stroke="white", stroke_width="2")| repeat(80, rotate(5))| translate(x=0, y=30)| rotate(180)
+
+
+import math
+def part_of_ellips(w,h,theta):
+    return point(math.sin(theta)*(w),math.cos(theta)*h)
+
+
+points = [point(0,0)]
+
+w = 150 # Width of ellipse
+h = 150 # Height of ellipse
+part = 0.5 # 1 => full ellipse, 0.25 => quarter and so on
+
+step = 0.01 # Increase to make ellipse smoother (will take more time) 
+
+i = 0
+while i < (3.14*(part*2)):
+    points.append(part_of_ellips(w,h,i))
+    i = i+step # Step size
+semi = polygon(points,fill="#ff3399",x=50, y=50)| rotate(-90)
+
+petal=ellipse(x=60,y=80,w=10,h=20,fill="red")
+#shape1 = circle(x=140, y=0, r=10, fill="#ff3399") | repeat(20, rotate(12))
+shape2 = ellipse( x=135, y=0, w=30,h=40,fill="#ff3399") | repeat(8, rotate(20))| rotate(20)
+c1=circle(fill="yellow", x=0, y=0, r=150)
+flow=petal | translate(x=30, y=30) | repeat(80,rotate(5))
+#petal1=ellipse(x=0,y=0,fill="")
+flow1=petal | translate(x=0, y=30) | repeat(80,rotate(5))
+donut = circle(r=120,fill="#F5E79D")
+
+
+#Display function
+show(p1,p2,p3,c1,semi,shape2,flow1,poly,z,m,y)
+#show(p1,p2,p3,c1,flow,semi,shape2,semi,donut,donut1,z,m,y)
