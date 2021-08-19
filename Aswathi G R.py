@@ -1,8 +1,16 @@
 from joy import *
 
 #maincircle
-mainc = circle(stroke="blue", x=0, y=0, r=150)
+mainc = circle(stroke="green", x=0, y=0, r=150) 
 
+#Central portion
+z = line(x1=0, y1=0, x2=20, y2=20, stroke="#000066", stroke_width="5")| repeat(2,rotate(-30))| rotate(-30)| translate(x=-40, y=0)
+m = line(x1=0, y1=0, x2=15, y2=25,stroke="#000066", stroke_width="5")| translate(x=-5, y=-10)
+y = line(x1=0, y1=0, x2=20, y2=20, stroke="#000066", stroke_width="5")| repeat(2,rotate(-30))| rotate(150)| translate(x=40, y=0)
+
+#circle
+c4= circle(x=50, y=0, r=6,fill="white", stroke="#EC9B3B") | repeat(36, rotate(10))
+ 
 #semicircle
 import math
 def part_of_ellips(w,h,theta):
@@ -30,24 +38,12 @@ sidec2= ellipse(w=10, h=40, fill="green") | translate(x=0, y=0)| rotate(90)| rep
 shape = ellipse( x=135, y=0, w=30,h=40,fill="#EC9B3B") | repeat(8, rotate(20))| rotate(-160)
 
 
-#Central portion
-z = line(x1=0, y1=0, x2=20, y2=20, stroke="#000066", stroke_width="5")| repeat(2,rotate(-30))| rotate(-30)| translate(x=-40, y=0)
-m = line(x1=0, y1=0, x2=15, y2=25,stroke="#000066", stroke_width="5")| translate(x=-5, y=-10)
-y = line(x1=0, y1=0, x2=20, y2=20, stroke="#000066", stroke_width="5")| repeat(2,rotate(-30))| rotate(150)| translate(x=40, y=0)
-
-
-
 #middle part
-
 z1 = point(x=0, y=0)
 z2 = point(x=85, y=0)
 z3 = point(x=0, y=85)
 z4 = point(x=85, y=85)
 poly= polygon([z1,z2,z3,z4],fill="#FECD1A ", stroke="none", stroke_width="2")| repeat(18, rotate(30))
-
-
-#circle
-c4= circle(x=50, y=0, r=6,fill="white", stroke="#EC9B3B") | repeat(36, rotate(10))
 
 
 
@@ -73,5 +69,7 @@ y1 = line(x1=20, y1=20, x2=0, y2=0, stroke="#000066", stroke_width="5")| repeat(
 
 
 show(c1,mainc,flow,semi,shape2, donut,shape,flow1,sidec1,sidec2,poly,greencir,donut1,c16,ellipflower,c4,c0,z,y,m,d1,z1,y1)
+
+
 
 
