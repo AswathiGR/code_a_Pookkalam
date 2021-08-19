@@ -39,10 +39,6 @@ y = line(x1=0, y1=0, x2=20, y2=20, stroke="#000066", stroke_width="5")| repeat(2
 
 #middle part
 
-#x1, y1 = 0, 0
-#x2, y2 = 85, 0
-#x3, y3 = 0, 85
-#x4, y4 = 85,85
 z1 = point(x=0, y=0)
 z2 = point(x=85, y=0)
 z3 = point(x=0, y=85)
